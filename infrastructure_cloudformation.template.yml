@@ -413,9 +413,10 @@ Resources:
       ServiceName: !Sub ${AppName}-Service
       Cluster: !Ref EcsCluster
       LaunchType: FARGATE
+      HealthCheckGracePeriodSeconds: 60
       DeploymentConfiguration:
         MaximumPercent: 200
-        MinimumHealthyPercent: 50
+        MinimumHealthyPercent: 100
       DesiredCount: 1
       NetworkConfiguration:
         AwsvpcConfiguration: 
